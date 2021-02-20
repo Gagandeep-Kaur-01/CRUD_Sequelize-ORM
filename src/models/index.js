@@ -21,6 +21,6 @@ db.Sequelize = Sequelize
 db.sequelize = sequelize;
 
 //----------------------------------------------------------------//
-
+db.student = require('./Student')(sequelize, Sequelize);
 
 module.exports = db;

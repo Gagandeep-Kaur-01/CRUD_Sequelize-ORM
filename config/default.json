@@ -1,0 +1,12 @@
+{
+    "app" : {
+      "PORT": 3000,
+      "HOST" : "localhost",
+      "SERVER" : "http"
+    },
+    "db": {
+      "DATABASE_NAME": "crud_sequelize",
+      "DATABASE_USER": "postgres",
+      "DATABASE_PASSWORD": "super1234"
+    }
+}

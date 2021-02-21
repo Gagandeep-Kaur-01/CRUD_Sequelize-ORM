@@ -31,3 +31,20 @@ export const getAllStudents = async (req, res) => {
         });
 };
 
+export const updateStudent = async (req, res) => {
+    try {
+        let payload= req.body;
+      let student =  await Student.update(payload,{
+            where:{
+                id:payload.id
+            }
+        });
+
+        console.log(req.body)
+        return res.status(200).json({student:student,message:"updated successfully"})
+    } 
+    catch (error) {
+        res.status(400).json({error:error.message});
+    }
+};
+

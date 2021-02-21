@@ -48,3 +48,19 @@ export const updateStudent = async (req, res) => {
     }
 };
 
+export const deleteStudent  = async (req, res) => {
+    try {
+        let payload= req.body;
+      let student=  await Student.destroy({
+            where:{
+                id:payload.id
+            }
+        });
+        return res.status(200).json({student:student,message:"deleted successfully"})
+    } 
+    catch (error) {
+        console.log("err-------",err);
+        res.status(400).json({error:error.message});
+    }
+};
+

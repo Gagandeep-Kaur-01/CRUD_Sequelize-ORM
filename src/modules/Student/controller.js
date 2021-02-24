@@ -40,7 +40,7 @@ export const updateStudent = async (req, res) => {
                 id:payload.id
             }
         });
-
+        
         console.log(req.body)
         return res.status(200).json({student:student,message:"updated successfully"})
     } 

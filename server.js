@@ -31,10 +31,10 @@ db.sequelize
 	});
 
 // sync()
-/*let drop = { force: true };
-db.sequelize.sync(drop).then(() => {
-	console.log(' drop and re-sync db.');
-}); */
+let drop = { force: true };
+db.sequelize.sync().then(() => {
+	console.log(' re-sync db.');
+}); 
 
 /*==============================================
 =                 MIDDLEWARE                  =

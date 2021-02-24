@@ -5,6 +5,7 @@ const Student = db.student;
 export const createStudent = async(req,res)=>{
 
     try{
+        console.log("Create")
         let studentData =await create(req.body);
 
        return res.status(200).json({student:studentData,message:"successfully added"});

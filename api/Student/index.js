@@ -1,8 +1,8 @@
 
 import create from "./create";
-import view from "./view";
+import viewAll from "./viewAll";
 import update from "./update";
 import remove from "./remove";
 
 
-export default [create, view, update, remove];
+export default [create, viewAll, update, remove];

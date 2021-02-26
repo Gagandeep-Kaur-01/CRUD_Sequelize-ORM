@@ -2,6 +2,7 @@ import { create } from './service';
 const db = require('../../models');
 const Student = db.student;
 
+// Insert the details of student(s)
 export const createStudent = async(req,res)=>{
 
     try{
@@ -17,6 +18,7 @@ export const createStudent = async(req,res)=>{
     
 }
 
+// Get the details of all the students
 export const getAllStudents = async (req, res) => {
 	Student.findAll({})
 		.then(data => {
@@ -27,11 +29,12 @@ export const getAllStudents = async (req, res) => {
 			//return res.status(400).json({message:"failed"});
 	      res.status(500).send({
               message: 
-                err.message || "Some error occured while retrieving tutorials."
+                err.message || "Some error occured while retrieving the details of students."
           });
         });
 };
 
+// Get the detail of a student
 export const getOneStudent = async (req, res) => {
 	Student.findOne({
         where: {id: req.params.id }
@@ -42,11 +45,12 @@ export const getOneStudent = async (req, res) => {
 		.catch(err => {
 	      res.status(500).send({
               message: 
-                err.message || "Some error occured while retrieving tutorials."
+                err.message || "Some error occured while retrieving the detail of student."
           });
         });
 };
 
+// Update the detail of students
 export const updateStudent = async (req, res) => {
     try {
         let payload= req.body;
@@ -64,6 +68,7 @@ export const updateStudent = async (req, res) => {
     }
 };
 
+// Delete the student
 export const deleteStudent  = async (req, res) => {
     try {
         let payload= req.body;

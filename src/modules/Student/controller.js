@@ -32,6 +32,21 @@ export const getAllStudents = async (req, res) => {
         });
 };
 
+export const getOneStudent = async (req, res) => {
+	Student.findOne({
+        where: {id: req.params.id }
+    })
+		.then(data => {
+            res.send(data);
+		})
+		.catch(err => {
+	      res.status(500).send({
+              message: 
+                err.message || "Some error occured while retrieving tutorials."
+          });
+        });
+};
+
 export const updateStudent = async (req, res) => {
     try {
         let payload= req.body;

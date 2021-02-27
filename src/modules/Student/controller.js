@@ -1,4 +1,4 @@
-import { create, oneStu } from './service';
+import { create, oneStu, edit } from './service';
 const db = require('../../models');
 const Student = db.student;
 
@@ -66,7 +66,7 @@ export const getOneStudent = async(req,res)=>{
 }
 
 // Update the detail of students
-export const updateStudent = async (req, res) => {
+/*export const updateStudent = async (req, res) => {
     try {
         let payload= req.body;
       let student =  await Student.update(payload,{
@@ -77,6 +77,20 @@ export const updateStudent = async (req, res) => {
         
         console.log(req.body)
         return res.status(200).json({student:student,message:"updated successfully"})
+    } 
+    catch (error) {
+        res.status(400).json({error:error.message});
+    }
+}; */
+
+// Another way
+export const updateStudent = async (req, res) => {
+    try {
+        let payload= req.body;
+
+        let editData = await edit(payload);        
+        console.log(req.body)
+        return res.status(200).json({student:editData,message:"updated successfully"})
     } 
     catch (error) {
         res.status(400).json({error:error.message});

@@ -39,7 +39,29 @@ export const oneStu = async payload => {
    });
 }; */
 
-
+// Updating the student   ###########################
+export const edit = async payload => {
+    // Updating the student record
+        let updated = await Student.update(payload, {
+            where: {
+                id: payload.id
+            }
+        })
+            return updated;
+    } 
+    
+    /* Another way -------------------------------------
+    export const edit = async payload => {
+    
+     // Updating the student record
+      return await Student.update(payload, {
+            where: {
+                id: payload.id
+            }
+        }).then(updated => {
+            return updated;
+        });
+    }; */
 
 
 

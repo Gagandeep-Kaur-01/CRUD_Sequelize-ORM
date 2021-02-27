@@ -26,3 +26,19 @@ export const getAllPost = async (req, res) => {
           });
         });
 };
+
+export const getPost  = async (req, res) => {
+	Post.findAll({
+        where: { userId: req.params.id },
+        include: [User]
+    })
+		.then(post => {
+            res.send(post);
+		})
+		.catch(err => {
+	      res.status(500).send({
+              message: 
+                err.message || "Some error occured while retrieving post."
+          });
+        });
+};

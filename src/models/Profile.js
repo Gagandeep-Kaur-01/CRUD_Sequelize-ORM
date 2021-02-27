@@ -8,6 +8,16 @@ module.exports = (sequelize, DataTypes) => {
 		}
     });
 
+     /*
+    Profile.associate = models => {
+        Profile.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+    */
+
  
     return Profile;
 

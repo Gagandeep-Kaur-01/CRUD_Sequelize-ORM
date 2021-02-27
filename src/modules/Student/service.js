@@ -27,7 +27,7 @@ export const oneStu = async payload => {
         return oneS;
 } 
 
-/* Another way
+/* Another way for getting the student
 export const oneStu = async payload => {
 // getting one student record
  return await Student.findOne({
@@ -50,7 +50,7 @@ export const edit = async payload => {
             return updated;
     } 
     
-    /* Another way -------------------------------------
+    /* Another way for updating the details
     export const edit = async payload => {
     
      // Updating the student record

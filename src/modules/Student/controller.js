@@ -50,7 +50,7 @@ export const getAllStudents = async (req, res) => {
         });
 };*/
 
-// Another way
+// Another way for getting the details of a student
 export const getOneStudent = async(req,res)=>{
     try{
         //let payload = req.body
@@ -83,7 +83,7 @@ export const getOneStudent = async(req,res)=>{
     }
 }; */
 
-// Another way
+// Another way for updating the details
 export const updateStudent = async (req, res) => {
     try {
         let payload= req.body;
@@ -114,7 +114,7 @@ export const updateStudent = async (req, res) => {
     }
 };*/
 
-// Another way
+// Another way for deleting the student
 export const deleteStudent = async (req, res) => {
     try {
         let payload= req.body;

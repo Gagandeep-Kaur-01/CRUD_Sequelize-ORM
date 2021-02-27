@@ -28,5 +28,6 @@ db.post = require('./Post')(sequelize, Sequelize);
 db.profile = require('./Profile')(sequelize, Sequelize);
 
 db.user.hasMany(db.post, {foreignKey:'userId'});
+db.user.hasOne(db.profile,{foreignKey:'userId'});
 
 module.exports = db;

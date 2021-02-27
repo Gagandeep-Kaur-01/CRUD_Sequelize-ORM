@@ -22,5 +22,6 @@ db.sequelize = sequelize;
 
 //----------------------------------------------------------------//
 db.student = require('./Student')(sequelize, Sequelize);
+db.user = require('./User')(sequelize, Sequelize);
 
 module.exports = db;

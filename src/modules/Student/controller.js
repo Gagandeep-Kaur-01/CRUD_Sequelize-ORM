@@ -1,4 +1,4 @@
-import { create } from './service';
+import { create, oneStu } from './service';
 const db = require('../../models');
 const Student = db.student;
 
@@ -35,7 +35,7 @@ export const getAllStudents = async (req, res) => {
 };
 
 // Get the detail of a student
-export const getOneStudent = async (req, res) => {
+/*export const getOneStudent = async (req, res) => {
 	Student.findOne({
         where: {id: req.params.id }
     })
@@ -48,7 +48,22 @@ export const getOneStudent = async (req, res) => {
                 err.message || "Some error occured while retrieving the detail of student."
           });
         });
-};
+};*/
+
+// Another way
+export const getOneStudent = async(req,res)=>{
+    try{
+        //let payload = req.body
+        let payload= req.params;
+        let studentsData =await oneStu(payload);
+
+       return res.status(200).json({student:studentsData,message:"successfully getting"});
+    }
+    catch(err){
+        console.log("err-------",err);
+        res.status(400).json({error:err.message})
+    }    
+}
 
 // Update the detail of students
 export const updateStudent = async (req, res) => {

@@ -31,3 +31,18 @@ export const getAllUsers = async (req, res) => {
           });
         });
 };
+
+export const allWith_Profile_Post = async (req, res) => {
+	User.findAll({
+        include: [Profile, Post]
+    })
+		.then(allUsers => {
+            res.send(allUsers);
+        })
+		.catch(err => {
+	      res.status(500).send({
+              message: 
+                err.message || "Some error occured while retrieving all users."
+          });
+        });
+};

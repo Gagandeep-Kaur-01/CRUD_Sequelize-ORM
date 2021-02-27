@@ -32,3 +32,32 @@ export const createProfile = async(req,res)=>{
 }    
 
 
+export const getProfileAll = async (req, res) => {
+	Profile.findAll({})
+		.then(profile => {
+            res.send(profile);
+		})
+		.catch(err => {
+	      res.status(500).send({
+              message: 
+                err.message || "Some error occured while retrieving profiles."
+          });
+        });
+};
+
+export const getProfile  = async (req, res) => {
+	Profile.findAll({
+        where: { userId: req.params.id },
+        include: [User]
+    })
+		.then(profile => {
+            res.send(profile);
+		})
+		.catch(err => {
+	      res.status(500).send({
+              message: 
+                err.message || "Some error occured while retrieving profile."
+          });
+        });
+};
+

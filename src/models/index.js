@@ -25,5 +25,6 @@ db.student = require('./Student')(sequelize, Sequelize);
 
 db.user = require('./User')(sequelize, Sequelize);
 db.post = require('./Post')(sequelize, Sequelize);
+db.profile = require('./Profile')(sequelize, Sequelize);
 
 module.exports = db;

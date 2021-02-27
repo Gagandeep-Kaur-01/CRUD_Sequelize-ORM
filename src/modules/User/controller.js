@@ -18,3 +18,16 @@ export const newUser = async(req,res)=>{
     }
     
 }
+
+export const getAllUsers = async (req, res) => {
+	User.findAll({})
+		.then(data => {
+            res.send(data);
+		})
+		.catch(err => {
+	      res.status(500).send({
+              message: 
+                err.message || "Some error occured while retrieving users."
+          });
+        });
+};

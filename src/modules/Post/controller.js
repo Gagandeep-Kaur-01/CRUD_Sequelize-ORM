@@ -13,3 +13,16 @@ export const createPost = async(req,res)=>{
         res.status(400).json({error:err.message})
     });
 }  
+
+export const getAllPost = async (req, res) => {
+	Post.findAll({})
+		.then(post => {
+            res.send(post);
+		})
+		.catch(err => {
+	      res.status(500).send({
+              message: 
+                err.message || "Some error occured while retrieving posts."
+          });
+        });
+};

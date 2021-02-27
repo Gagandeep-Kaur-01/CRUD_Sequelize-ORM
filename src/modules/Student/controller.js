@@ -1,4 +1,4 @@
-import { create, oneStu, edit } from './service';
+import { create, oneStu, edit, remove } from './service';
 const db = require('../../models');
 const Student = db.student;
 
@@ -98,7 +98,7 @@ export const updateStudent = async (req, res) => {
 };
 
 // Delete the student
-export const deleteStudent  = async (req, res) => {
+/*export const deleteStudent  = async (req, res) => {
     try {
         let payload= req.body;
       let student=  await Student.destroy({
@@ -110,6 +110,19 @@ export const deleteStudent  = async (req, res) => {
     } 
     catch (error) {
         console.log("err-------",err);
+        res.status(400).json({error:error.message});
+    }
+};*/
+
+// Another way
+export const deleteStudent = async (req, res) => {
+    try {
+        let payload= req.body;
+
+        let deleteData = await remove(payload); 
+        return res.status(200).json({student:deleteData,message:"Deleted successfully"})
+    } 
+    catch (error) {
         res.status(400).json({error:error.message});
     }
 };

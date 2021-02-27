@@ -63,6 +63,18 @@ export const edit = async payload => {
         });
     }; */
 
+ // Deleting the student  ##############################
+export const remove = async payload => {
+
+    // Deleting the student record
+        let deleted = await Student.destroy({
+            where: {
+                id: payload.id
+            }
+        })
+            return deleted;
+} 
+
 
 
 

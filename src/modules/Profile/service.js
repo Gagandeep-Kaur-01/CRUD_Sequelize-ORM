@@ -1,6 +1,6 @@
 const db = require('../../models');
 const Profile = db.profile;
-const Client = db.client;
+const User = db.user;
 
 export const create = async payload =>{
 

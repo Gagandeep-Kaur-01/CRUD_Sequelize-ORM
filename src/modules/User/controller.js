@@ -4,6 +4,7 @@ const User = db.user;
 const Profile = db.profile;
 const Post = db.post;
 
+// Add/ insert the user(s)
 export const newUser = async(req,res)=>{
 
     try{
@@ -19,6 +20,7 @@ export const newUser = async(req,res)=>{
     
 }
 
+// Get the details of all the users
 export const getAllUsers = async (req, res) => {
 	User.findAll({})
 		.then(data => {
@@ -32,6 +34,7 @@ export const getAllUsers = async (req, res) => {
         });
 };
 
+// Get the details of all the users including their profile ans posts
 export const allWith_Profile_Post = async (req, res) => {
 	User.findAll({
         include: [Profile, Post]

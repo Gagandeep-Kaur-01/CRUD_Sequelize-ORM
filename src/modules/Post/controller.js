@@ -2,6 +2,8 @@ const db = require('../../models');
 const User = db.user;
 const Post = db.post;
 
+
+// Adding/ inserting the post(s)
 export const createPost = async(req,res)=>{
     Post.create({
         text: req.body.text,
@@ -14,6 +16,7 @@ export const createPost = async(req,res)=>{
     });
 }  
 
+// Get all the inserted posts
 export const getAllPost = async (req, res) => {
 	Post.findAll({})
 		.then(post => {
@@ -27,6 +30,7 @@ export const getAllPost = async (req, res) => {
         });
 };
 
+// Get all the posts including user
 export const getPost  = async (req, res) => {
 	Post.findAll({
         where: { userId: req.params.id },

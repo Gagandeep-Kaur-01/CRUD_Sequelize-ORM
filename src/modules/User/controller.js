@@ -4,7 +4,7 @@ const User = db.user;
 const Profile = db.profile;
 const Post = db.post;
 
-// Add/ insert the user(s)
+// Adding/ inserting the user(s)
 export const newUser = async(req,res)=>{
 
     try{

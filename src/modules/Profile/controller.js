@@ -3,6 +3,8 @@ const db = require('../../models');
 const User = db.user;
 const Profile = db.profile;
 
+// Adding/ inserting the profile(s)
+
 /*export const createProfile = async(req,res)=>{
 
     try{
@@ -31,7 +33,7 @@ export const createProfile = async(req,res)=>{
     });
 }    
 
-
+// Get all the inserted profiles
 export const getProfileAll = async (req, res) => {
 	Profile.findAll({})
 		.then(profile => {
@@ -45,6 +47,7 @@ export const getProfileAll = async (req, res) => {
         });
 };
 
+// Get all the profiles including user
 export const getProfile  = async (req, res) => {
 	Profile.findAll({
         where: { userId: req.params.id },

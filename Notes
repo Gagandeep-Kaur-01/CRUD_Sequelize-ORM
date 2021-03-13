@@ -1,0 +1,11 @@
+Step 1 - Create a new migration
+ --> sequelize migration:create --name ......(eg: UserA)
+
+Step 2 - Edit the migrations to suit the need
+ --> Add column(s), change datatype of column(s), rename column(s), and remove column(s)
+
+Step 3 - Update the model with the new fields
+ --> Add the changes to the created model
+
+Step 4 - Run migration
+--> sequelize db: migrate 

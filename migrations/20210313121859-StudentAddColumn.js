@@ -7,8 +7,7 @@ module.exports = {
       'students', // table name
       'gender', // new field name/ attribute name
        {  // attribute definition
-       type: Sequelize.STRING,
-       allowNull: false,
+       type: Sequelize.STRING
        },
       ), 
       queryInterface.addColumn(

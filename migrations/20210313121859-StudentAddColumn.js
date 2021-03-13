@@ -5,7 +5,7 @@ module.exports = {
     return Promise.all ([ 
       queryInterface.addColumn(
       'students', // table name
-      'gender', // new field name/ attribute name
+      'class', // new field name/ attribute name
        {  // attribute definition
        type: Sequelize.STRING
        },

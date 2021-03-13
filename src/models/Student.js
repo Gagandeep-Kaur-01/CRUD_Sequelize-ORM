@@ -31,6 +31,15 @@ module.exports = (sequelize, DataTypes) => {
 			allowNull: false,
 			defaultValue: '',
 		},
+		class: {
+			type: DataTypes.STRING,
+			defaultValue: '',
+		},
+		quiz: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			defaultValue: '',
+		},
     });
   
     return Student;

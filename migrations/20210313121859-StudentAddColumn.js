@@ -12,7 +12,7 @@ module.exports = {
       ), 
       queryInterface.addColumn(
         'students', 
-        'age',
+        'quiz',
         {
           type: Sequelize.STRING,
           allowNull: true,

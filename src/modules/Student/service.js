@@ -6,7 +6,7 @@ export const create = async payload =>{
 
 let data= await Student.create({
         name: payload.name,
-        emailOrNumber: payload.emailOrNumber,
+        email: payload.email,
         mobileNo: payload.mobileNo,
         city: payload.city,
         address: payload.address,

@@ -26,11 +26,11 @@ module.exports = (sequelize, DataTypes) => {
 			allowNull: false,
 			defaultValue: '',
 		},
-		zip: {
-			type: DataTypes.STRING,
-			allowNull: false,
-			defaultValue: '',
-		},
+		// zip: {
+		// 	type: DataTypes.STRING,
+		// 	allowNull: false,
+		// 	defaultValue: '',
+		// },
 		class: {
 			type: DataTypes.STRING,
 			defaultValue: '',

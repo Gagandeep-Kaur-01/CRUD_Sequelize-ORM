@@ -11,7 +11,7 @@ let data= await Student.create({
         city: payload.city,
         address: payload.address,
         state: payload.state,
-        zip: payload.zip,
+        // zip: payload.zip,
         class: payload.class,
         quiz: payload.quiz,
     })

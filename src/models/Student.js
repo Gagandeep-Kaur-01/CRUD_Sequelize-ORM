@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
 			defaultValue: '',
 		},
 		quiz: {
-			type: DataTypes.INTEGER,
+			type: DataTypes.FLOAT,
 			allowNull: false,
 			defaultValue: '',
 		},

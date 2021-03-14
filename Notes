@@ -9,3 +9,10 @@ Step 3 - Update the model with the new fields
 
 Step 4 - Run migration
 --> sequelize db: migrate 
+
+For the first time to use migrations:- 
+Run the below commands after step 1:
+: sequelize init
+: npm install mysql2
+: updated configurations
+: then proceed from step 2.

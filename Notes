@@ -1,3 +1,4 @@
+// For adding migrations---------------------------------
 Step 1 - Create a new migration
  --> sequelize migration:create --name ......(eg: UserA)
 
@@ -16,3 +17,62 @@ Run the below commands after step 1:
 : npm install mysql2
 : updated configurations
 : then proceed from step 2.
+
+// For using 'GEOMETRY' datatype---------------------------
+CREATE TABLE geometries(name varchar, geom geometry);
+
+INSERT INTO geometries VALUES
+      ('Point', 'POINT(0 0)'),
+	  ('Linestring', 'LINESTRING(0 0, 1 1, 2 1, 2 2)'),
+	  ('Polygon', 'POLYGON((0 0, 1 0, 1 1, 0 1, 0 0))'),
+	  ('PolygonWithHole', 'POLYGON((0 0, 10 0, 0 10, 0 0), (1 1, 1 2, 2 2, 1 1))'),
+	  ('Collection', 'GEOMETRYcOLLECTION(POINT(2 0),POLYGON((0 0, 1 0, 1 1, 0 1, 0 0)))');
+
+SELECT name, ST_AsText(geom) from geometries;
+
+Representing Real World Objects
+    SELECT name, ST_GeometryType(geom), ST_NDims(geom), ST_SRID(geom) from geometries;
+
+SELECT *
+FROM geometries
+WHERE ST_Distance_Sphere(point1, ST_MakePoint(2,4.1)) <= radius_mi * 16.34
+
+Chandigarh: 30.7333° N, 76.7794° E
+Mohali: 30.7046° N, 76.7179° E
+
+SELECT * FROM public.geometries
+	
+SELECT ST_Distance(
+		'SRID=4326;POINT(30.7333 76.7794)'::geometry,
+		'SRID=4326;POINT(30.7046 76.7179)'::geometry
+	);
+
+
+SELECT point, point1 FROM geometries
+
+SELECT ST_Distance(
+	'SRID=4326; POINT(point)'::geometry,
+	'SRID=4326; POINT(point1)'::geometry
+) FROM geometries;
+
+SELECT ST_Distance(POINT(point)::geometry, POINT(point1)::geometry) from geometries where id =10;
+SELECT ST_Distance(POINT(point)::geometry, POINT(point1)::geometry) from geometries;
+SELECT * from geometries where id = 10;
+
+CREATE EXTENSION POSTGIS;
+DELETE FROM geometries where id between 1 and 4; 
+
+SELECT point, point1,
+ST_Distance(POINT(point)::geometry, POINT(point1)::geometry)
+AS distance
+from geometries
+WHERE ST_Distance(POINT(point)::geometry, POINT(point1)::geometry) < 20;
+
+
+
+SELECT point, point1,
+ST_Distance(POINT(point)::geometry, POINT(point1)::geometry)
+AS distance
+from geometries
+WHERE ST_Distance(POINT(point)::geometry, POINT(point1)::geometry) < 5.87565;
+LIMIT 2;

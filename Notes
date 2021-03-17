@@ -18,7 +18,7 @@ Run the below commands after step 1:
 : updated configurations
 : then proceed from step 2.
 
-// For using 'GEOMETRY' datatype---------------------------
+// For using 'GEOMETRY' datatype--------------------------- 
 CREATE TABLE geometries(name varchar, geom geometry);
 
 INSERT INTO geometries VALUES

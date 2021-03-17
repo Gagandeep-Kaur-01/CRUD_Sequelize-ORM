@@ -1,11 +1,11 @@
 import express from 'express';
 
-import { getOneStudent } from "../../src/modules/Student/controller";
+import { getOneStudent } from './../../src/modules/Student/controller';
 
 //Routes
 const app = express();
 
-app.get('/getOneStudent/:id', getOneStudent);
+app.get('/getOneStudent/:name',getOneStudent);
 
 export default app;
 

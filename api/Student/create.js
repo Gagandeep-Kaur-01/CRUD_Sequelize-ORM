@@ -1,6 +1,6 @@
 import express from "express";
 
-import { createStudent } from "../../src/modules/Student/controller";
+import { createStudent } from "./../../src/modules/Student/controller";
 
 const app = express();
 

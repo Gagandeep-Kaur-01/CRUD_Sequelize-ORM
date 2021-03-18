@@ -1,4 +1,4 @@
-import { create, edit, remove, oneStu, AllStu, AllStu_Count, StuId, editById, editMany } from './service';
+import { create, edit, oneStu, AllStu, AllStu_Count, StuId, editById, editMany, removeOne, removeById, removeMany } from './service';
 const db = require('../../models');
 const Student = db.student;
 
@@ -196,7 +196,7 @@ export const deleteStudent = async (req, res) => {
     try {
         let payload= req.body;
 
-        let deleteData = await remove(payload); 
+        let deleteData = await removeOne(payload); 
         return res.status(200).json({student:deleteData,message:"Deleted successfully"})
     } 
     catch (error) {
@@ -204,8 +204,26 @@ export const deleteStudent = async (req, res) => {
     }
 };
 
+export const deleteById = async (req, res) => {
+    try {
+        let payload= req.params;
 
+        let deleteData = await removeById(payload); 
+        return res.status(200).json({student:deleteData,message:"Deleted successfully"})
+    } 
+    catch (error) {
+        res.status(400).json({error:error.message});
+    }
+};
 
+export const deleteMany = async (req, res) => {
+    try {
+        let payload= req.params;
 
-
-
+        let deleteData = await removeMany(payload); 
+        return res.status(200).json({student:deleteData,message:"Deleted successfully"})
+    } 
+    catch (error) {
+        res.status(400).json({error:error.message});
+    }
+};

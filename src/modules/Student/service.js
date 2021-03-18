@@ -1,4 +1,4 @@
-import { findOne, findAll, findWithPagination, findById, UpdateOne, UpdateById, UpdateMany } from '../../helpers/commonFunctions';
+import { findOne, findAll, findWithPagination, findById, UpdateOne, UpdateById, UpdateMany, DeleteOne, DeleteById, DeleteMany } from '../../helpers/commonFunctions';
 '../../helpers/commonFunctions'
 const db = require('../../models');
 const Student = db.student;
@@ -151,16 +151,37 @@ export const editMany = async (payload) => {
     return editData;
 } 
 
-//**************************************************************  Deleting the student ************************************* 
-export const remove = async payload => {    
-    // Deleting the student record
-    let deleted = await Student.destroy({
-        where: {
-            id: payload.id
-        }
-    })
-    return deleted;
-}     
+//**************************************************************  DeleteOne ************************************* 
+// export const removeOne = async payload => {    
+//     // Deleting the student record
+//     let deleted = await Student.destroy({
+//         where: {
+//             id: payload.id
+//         }
+//     })
+//     return deleted;
+// }     
+
+// Another way  (common function)
+export const removeOne = async payload => {
+    const condition = {name:payload.name};
+    const deleteOne = await DeleteOne(Student, condition);   
+    return deleteOne;
+} 
+
+//**************************************************************  DeleteById ************************************* 
+export const removeById = async payload => {
+    const condition = {id:payload.id};
+    const deleteById = await DeleteById(Student, condition);   
+    return deleteById;
+} 
+
+//**************************************************************  DeleteMany ************************************* 
+export const removeMany = async payload => {
+    let condition = {id:[1,2]};
+    const deleteById = await DeleteMany(Student, condition);   
+    return deleteById;
+}   
     
 
 

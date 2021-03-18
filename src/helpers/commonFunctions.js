@@ -124,29 +124,50 @@ exports.UpdateMany = (tableName, condition, query) => {
     } 
 }
 
-exports.update = (req,res)=>{
-    let modelName= req.body.modelName;
-    console.log("---modelName--",modelName);
-    db[modelName].update(req.body.updateObj,{where:whereObj})
-            .then((data)=>{
-                res.json({value:true,data:"updated successfully"})
-            })
-            .catch((err)=>{
-                console.log("--err---",err);
-                res.json({value:true,data:"error while updating"})
-            })
+exports.DeleteOne = (tableName, condition) => {
+    try {
+       return tableName.destroy({
+           where: 
+             condition                  
+        }).then(getdata => {
+            console.log(tableName, condition, getdata)
+            return getdata;
+        })
+    } 
+    catch(err) {
+        console.log(err)
+        throw new Error(err);        
+    } 
 }
 
-exports.deleteModel = (req,res)=>{
-    let modelName= req.body.modelName;
-    console.log("---modelName--",modelName);
-    db[modelName].destroy({where:whereObj})
-            .then((data)=>{
-                res.json({value:true,data:"deleted successfully"})
-            })
-            .catch((err)=>{
-                console.log("--err---",err);
-                res.json({value:true,data:err})
-            })
+exports.DeleteById = (tableName, condition) => {
+    try {
+       return tableName.destroy({
+           where: 
+             condition                  
+        }).then(getdata => {
+            console.log(tableName, condition, getdata)
+            return getdata;
+        })
+    } 
+    catch(err) {
+        console.log(err)
+        throw new Error(err);        
+    } 
+}
 
+exports.DeleteMany = (tableName, condition) => {
+    try {
+       return tableName.destroy({
+           where: 
+             condition                  
+        }).then(getdata => {
+            console.log(tableName, condition, getdata)
+            return getdata;
+        })
+    } 
+    catch(err) {
+        console.log(err)
+        throw new Error(err);        
+    } 
 }

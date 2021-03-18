@@ -1,14 +1,15 @@
 
 import create from "./create";
-import view from "./view";
-import update from "./update";
-import remove from "./remove";
-import one from "./viewOne";
+import view from "./viewAll";
+import update from "./updateOne";
+import viewOne from "./viewOne";
 import stuCount from "./viewAll&Count";
-import findById from "./OneById";
-import updateById from "./UpdateById";
-import updateMany from "./UpdateMany";
+import findById from "./viewById";
+import updateById from "./updateById";
+import updateMany from "./updateMany";
+import deleteOne from "./removeOne";
+import deleteById from "./removeById";
+import deleteMany from "./removeMany";
 
 
-
-export default [create, view, update, remove,one, stuCount, findById, updateById, updateMany];
+export default [create, view, update, viewOne, stuCount, findById, updateById, updateMany, deleteOne, deleteById, deleteMany];

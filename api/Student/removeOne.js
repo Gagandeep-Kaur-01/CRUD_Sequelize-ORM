@@ -5,6 +5,6 @@ import { deleteStudent } from '../../src/modules/Student/controller';
 //Routes
 const app = express();
 
-app.delete('/delete', deleteStudent);
+app.delete('/deleteOne', deleteStudent);
 
 export default app;

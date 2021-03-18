@@ -3,7 +3,7 @@ import { findOne, findAll, findWithPagination, findById, UpdateOne, UpdateById, 
 const db = require('../../models');
 const Student = db.student;
 
-// Creating the student ####################################
+//************************************************* Creating/ Inserting student data ******************************************************
 export const create = async payload =>{    
     let data= await Student.create({
         name: payload.name,
@@ -18,7 +18,7 @@ export const create = async payload =>{
     return data
 }
 
-//******************** Getting one student*******************
+//***************************************************************** Getting one student (findOne) *************************************
 // 1 way
 // export const oneStu = async payload => {
 
@@ -51,7 +51,8 @@ export const oneStu = async (payload) => {
     return getOne;
 } 
 
-//******************** Getting by Id (common function)*******************
+//***************************************************************** Getting by Id  *************************************
+// (common function)
 export const StuId = async (payload) => {
     const condition = {id:payload.id};
     const getIdOne = await findById(Student, condition);   
@@ -59,9 +60,7 @@ export const StuId = async (payload) => {
 } 
 
 
-
-//******************** Get detail of all the students********************
-
+//***************************************************************** Get detail of all the students *************************************
 //    export const AllStu = async payload => {
 //     return await Student.findAll({
 //         attributes: ["name","email", "mobileNo","address"],
@@ -79,7 +78,7 @@ export const AllStu = async (payload) => {
     return getAll;
 }    
 
-//******************** Get detail of all the students with count********************
+//************************************************************** Get detail of all the students with count *************************************
 // export const AllStu_Count = async payload => {
 //     return await Student.findAndCountAll({
 //         where: {Active:payload.Active=true},
@@ -99,7 +98,8 @@ export const AllStu_Count = async (payload) => {
     return getAllCount;
 } 
 
-//******************** Updating the student ~ UpdateOne********************
+
+//************************************************************** Updating the student ~ UpdateOne *************************************
 // export const edit = async payload => {
 //     // Updating the student record
 //         let updated = await Student.update(payload, {
@@ -132,7 +132,8 @@ export const edit = async payload => {
     return editOne;
 } 
 
-//******************** UpdateById (common function)********************
+//**************************************************************  UpdateById *************************************
+// common function
 export const editById = async (payload) => {
     const condition = {id:payload.id};
     const updateQuery = payload;
@@ -140,7 +141,8 @@ export const editById = async (payload) => {
     return editData;
 } 
 
-//******************** UpdateMany (common function)********************
+//**************************************************************  UpdateMany *************************************
+// common function
 export const editMany = async (payload) => {
     let condition = {id:[2,4]};
     //const condition = {id:payload.id};
@@ -149,27 +151,7 @@ export const editMany = async (payload) => {
     return editData;
 } 
 
-
-
-
-
-
-
-
-
-
-
-// export const StuId = async (payload) => {
-//     const condition = {id:payload.id};
-//     const getIdOne = await findById(Student, condition);   
-//     return getIdOne;
-
-
-
-
-
-    
-//******************** Deleting the student********************
+//**************************************************************  Deleting the student ************************************* 
 export const remove = async payload => {    
     // Deleting the student record
     let deleted = await Student.destroy({
@@ -180,22 +162,5 @@ export const remove = async payload => {
     return deleted;
 }     
     
-
-
-// Create common functions for:-
-// findOne
-// findAll
-// findAllAndCount
-// findByID
-// update one
-// Update many
-// Update by I'd
-
-
-//whereQuery = {where: {id: "4444"}}
-//    attributes: [name, id, class, address]
-//    exclude: [updatedBy, updatedAt,]
-//    findOne(Student, whereQuery, attributes, exclude)
-//   --> findOne(Student, whereQuery)
 
 

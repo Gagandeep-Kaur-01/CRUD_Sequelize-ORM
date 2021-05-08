@@ -32,7 +32,7 @@ db.sequelize
 
 // sync()
 let drop = { force: true };
-db.sequelize.sync().then(() => {
+db.sequelize.sync({alter:true}).then(() => {
 	console.log(' re-sync db.');
 }); 
 

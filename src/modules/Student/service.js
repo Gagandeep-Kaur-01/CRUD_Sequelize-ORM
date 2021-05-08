@@ -8,12 +8,18 @@ export const create = async payload =>{
     let data= await Student.create({
         name: payload.name,
         email: payload.email,
+        password: payload.password,
         mobileNo: payload.mobileNo,
         city: payload.city,
         address: payload.address,
         state: payload.state,
         zip: payload.zip,
-        Active: payload.Active
+        Active: payload.Active,
+        test: payload.test,
+        testing: payload.testing,
+        testingColumn1: payload.testingColumn1,
+        newColumn: payload.newColumn,
+        status: payload.status,
     })
     return data
 }

@@ -1,9 +1,12 @@
 import express from 'express';
+import { createValidator } from 'express-joi-validation';
+import Joi from '@hapi/joi';
 
 import { getOneStudent } from './../../src/modules/Student/controller';
 
 //Routes
 const app = express();
+const validator = createValidator({ passError: true });
 
 /**
  * @swagger
@@ -22,9 +25,9 @@ const app = express();
  *         required: true
  *       - in: path
  *         name: name
- *         required: true
  *         type: string
  *         minimum: 1
+ *         required: true
  *         description: The Student name
  *   responses:
  *    '200':
@@ -34,6 +37,22 @@ const app = express();
  */
 
 app.get('/getOneStudent/:name',getOneStudent);
+
+const getStudentByName = Joi.object().keys({
+    name: Joi.string()
+    .regex(/^[a-zA-Z]/)
+    .messages({ 'string.pattern.base': `name must be a string.` })
+    .required()
+    .label('Student Name'),
+});
+
+app.get(
+    '/byName/:name',
+    validator.params(getStudentByName, { 
+       joi: { convert: true, allowUnknown: false },
+    }), 
+    getOneStudent
+);
 
 export default app;
 

@@ -1,8 +1,11 @@
 import express from 'express';
+import { createValidator } from 'express-joi-validation';
+import Joi from '@hapi/joi';
 
 import { getAllStudents } from '../../src/modules/Student/controller';
 
 const app = express();
+const validator = createValidator({ passError: true });
 
 /**
  * @swagger
